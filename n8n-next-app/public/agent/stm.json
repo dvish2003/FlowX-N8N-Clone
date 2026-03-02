@@ -1,0 +1,98 @@
+{
+  "users": {
+    "09767-097": [
+      {
+        "message": "User introduced themselves as Ijambo",
+        "timestamp": 1765087465495
+      },
+      {
+        "message": "User is trying to save data to a sheet",
+        "timestamp": 1765087687349
+      },
+      {
+        "message": "User introduced themselves as Ben",
+        "timestamp": 1765087866727
+      },
+      {
+        "message": "User requested to save everything about our conversation regarding building a professional waitlist page for their AI course, and provided my previous comprehensive guidance on essential elements, technical implementation options, growth strategies, and recommended tools.",
+        "timestamp": 1765090097216
+      },
+      {
+        "message": "User introduced their new name: Isaac",
+        "timestamp": 1765091158256
+      }
+    ],
+    "690edb115def1eb8dfeeae9b": [
+      {
+        "message": "User introduced themselves as Ben",
+        "timestamp": 1765093220542
+      },
+      {
+        "message": "User introduced themselves as Chris",
+        "timestamp": 1765093693752
+      },
+      {
+        "message": "User confirmed sending email to bienfait201@gmail.com with PayPal payment method for $400 computer payment debt",
+        "timestamp": 1765097812449
+      },
+      {
+        "message": "User requested to resend email to bienfait201@gmail.com regarding $400 computer payment debt with PayPal payment method, believing it will work now",
+        "timestamp": 1765098115792
+      },
+      {
+        "message": "User provided name 'Ben' for email signature",
+        "timestamp": 1765130893484
+      },
+      {
+        "message": "User asked for a one-paragraph explanation of what a dog is",
+        "timestamp": 1765189039138
+      },
+      {
+        "message": "Greeted user and asked if they have a minute to talk about Maxi-shop.",
+        "timestamp": 1765290968346
+      },
+      {
+        "message": "Asked user for name, email, city and interest after receiving FAQ PDF.",
+        "timestamp": 1765290999467
+      },
+      {
+        "message": "Provided overview of Maxi Shop and asked if user wants more specific info after they uploaded ABOUT MAXI SHOP.pdf.",
+        "timestamp": 1765291101138
+      },
+      {
+        "message": "Provided overview of product categories offered by Maxi Shop and invited user to specify interest.",
+        "timestamp": 1765291139731
+      },
+      {
+        "message": "Provided a sample product catalogue with categories and prices for Maxi Shop items.",
+        "timestamp": 1765291167180
+      },
+      {
+        "message": "Provided Maxi Shop's vision: to become a leading online marketplace offering easy, enjoyable shopping, affordable prices, trustworthy sellers, promoting comfort, security, and customer satisfaction.",
+        "timestamp": 1765292883828
+      },
+      {
+        "message": "User uploaded PDF about Maxi Shop and asked for assistance.",
+        "timestamp": 1765336272528
+      },
+      {
+        "message": "Confirmed email sent to manager about 6% discount request for LED Desk Lamp (MAXI‑1007).",
+        "timestamp": 1765336671766
+      }
+    ],
+    "6938e9447603e2e703244cb4": [
+      {
+        "message": "Greeted user, introduced self as Morgan from Maxi-shop, asked if they have a minute to talk.",
+        "timestamp": 1765337925102
+      },
+      {
+        "message": "Greeted user, introduced self as Morgan from Maxi-shop, asked if they have a minute to talk.",
+        "timestamp": 1765338653897
+      },
+      {
+        "message": "Provided overview of Maxi‑shop product list and key services.",
+        "timestamp": 1765338676795
+      }
+    ]
+  }
+}
