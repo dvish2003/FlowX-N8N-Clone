@@ -3,15 +3,16 @@ import { UserService } from "@/services/user/UserService";
 
 export async function POST(req: Request) {
   try {
-    const { email, code } = await req.json();
+    const { email: rawEmail, code } = await req.json();
 
-    if (!email || !code) {
+    if (!rawEmail || !code) {
       return NextResponse.json(
         { message: "Email and code are required" },
         { status: 400 }
       );
     }
 
+    const email = rawEmail.toLowerCase();
     const userService = UserService.getInstance();
     await userService.verifyUser(email, code);
 

@@ -11,7 +11,7 @@ export class UserService {
     return UserService.instance;
   }
   async findUserByEmail(email: string) {
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email.toLowerCase() });
     return user;
   }
 
@@ -21,7 +21,8 @@ export class UserService {
     verificationCode?: string;
     name?: string;
   }) {
-    const { email, password, verificationCode, name } = props;
+    const { email: rawEmail, password, verificationCode, name } = props;
+    const email = rawEmail.toLowerCase();
     const existingUser = await User.findOne({ email });
 
     if (existingUser && existingUser.isVerified) {
@@ -55,7 +56,7 @@ export class UserService {
   }
 
   async verifyUser(email: string, code: string) {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email.toLowerCase() });
     if (!user) throw new Error("User not found");
     if (user.verificationCode !== code) throw new Error("Invalid verification code");
 
@@ -66,7 +67,7 @@ export class UserService {
   }
 
   async updateVerificationCode(email: string, code: string) {
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email.toLowerCase() });
     if (!user) throw new Error("User not found");
     user.verificationCode = code;
     await user.save();
@@ -80,7 +81,8 @@ export class UserService {
     access_token?: string;
     refresh_token?: string;
   }) {
-    const { id, name, email, image, access_token, refresh_token } = props;
+    const { id, name, email: rawEmail, image, access_token, refresh_token } = props;
+    const email = rawEmail.toLowerCase();
 
     const existingUser = await User.findOne({ email: email });
 

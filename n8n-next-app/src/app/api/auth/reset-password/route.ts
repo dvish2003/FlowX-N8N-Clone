@@ -6,15 +6,16 @@ import bcrypt from "bcryptjs";
 export async function POST(req: Request) {
   try {
     await dbConnect();
-    const { email, code, password } = await req.json();
+    const { email: rawEmail, code, password } = await req.json();
 
-    if (!email || !code || !password) {
+    if (!rawEmail || !code || !password) {
       return NextResponse.json(
         { message: "Email, code, and new password are required" },
         { status: 400 }
       );
     }
 
+    const email = rawEmail.toLowerCase();
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json(

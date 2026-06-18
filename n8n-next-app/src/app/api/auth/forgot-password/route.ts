@@ -6,15 +6,16 @@ import { sendResetPasswordEmail } from "@/lib/mail";
 export async function POST(req: Request) {
   try {
     await dbConnect();
-    const { email } = await req.json();
+    const { email: rawEmail } = await req.json();
 
-    if (!email) {
+    if (!rawEmail) {
       return NextResponse.json(
         { message: "Email is required" },
         { status: 400 }
       );
     }
 
+    const email = rawEmail.toLowerCase();
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json(

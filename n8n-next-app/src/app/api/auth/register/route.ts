@@ -4,15 +4,16 @@ import { sendVerificationEmail } from "@/lib/mail";
 
 export async function POST(req: Request) {
   try {
-    const { email, password, name } = await req.json();
+    const { email: rawEmail, password, name } = await req.json();
 
-    if (!email || !password) {
+    if (!rawEmail || !password) {
       return NextResponse.json(
         { message: "Email and password are required" },
         { status: 400 }
       );
     }
 
+    const email = rawEmail.toLowerCase();
     const userService = UserService.getInstance();
     
     // Generate a 6-digit verification code
