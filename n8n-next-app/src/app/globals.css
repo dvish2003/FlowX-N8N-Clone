@@ -280,3 +280,56 @@ aside .border-slate-200 {
 .react-flow__attribution {
   @apply !bg-transparent !text-neutral-400 !text-[8px] !font-medium;
 }
+
+/* Monochrome Theme Animations */
+@keyframes monochromeGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-monochrome-gradient {
+  background-size: 200% 200%;
+  animation: monochromeGradient 8s ease infinite;
+}
+
+@keyframes monochromeGlow {
+  0%, 100% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05));
+  }
+  50% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+  }
+}
+
+.animate-monochrome-glow {
+  animation: monochromeGlow 6s infinite ease-in-out;
+}
+
+@keyframes borderShimmer {
+  0% {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.02);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.02);
+  }
+}
+
+.animate-border-shimmer {
+  animation: borderShimmer 4s infinite ease-in-out;
+}
+

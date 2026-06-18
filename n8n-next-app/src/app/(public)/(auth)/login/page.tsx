@@ -123,22 +123,22 @@ const LoginPage = () => {
     };
 
     return (
-        <section className='min-h-screen flex items-center justify-center bg-[#04020a] relative overflow-hidden font-sans text-slate-200'>
+        <section className='min-h-screen flex items-center justify-center bg-black relative overflow-hidden font-sans text-slate-200'>
             {/* ANIMATED GRID BACKDROP */}
             <AnimatedGrid />
 
             <div className='relative z-10 w-full max-w-[480px] px-6 py-12'>
                 <div className='flex flex-col items-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700'>
-                    <Link href="/" className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-[#0b071a]/80 backdrop-blur-md shadow-xl border border-purple-500/10 hover:scale-105 active:scale-95 transition-all group">
-                         <ArrowLeft className='w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-colors' />
-                         <span className='text-[10px] font-black uppercase tracking-widest text-purple-400 group-hover:text-purple-300'>Back to Home</span>
+                    <Link href="/" className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-neutral-950/80 backdrop-blur-md shadow-xl border border-neutral-800/80 hover:scale-105 active:scale-95 transition-all group">
+                         <ArrowLeft className='w-4 h-4 text-neutral-400 group-hover:text-white transition-colors' />
+                         <span className='text-[10px] font-black uppercase tracking-widest text-neutral-400 group-hover:text-white'>Back to Home</span>
                     </Link>
                 </div>
 
-                <div className='bg-[#0b071a]/75 rounded-[2.5rem] shadow-[0_32px_128px_rgba(0,0,0,0.5)] border border-purple-950/40 p-8 md:p-12 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150'>
+                <div className='bg-neutral-950/75 rounded-[2.5rem] shadow-[0_32px_128px_rgba(0,0,0,0.6)] border border-neutral-900/80 p-8 md:p-12 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 animate-border-shimmer'>
                     <div className='flex flex-col items-center mb-8 text-center'>
-                         <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-2xl shadow-purple-500/20 mb-6">
-                            {isForgotPassword ? <KeyRound className="w-8 h-8 text-white" /> : <Zap className="w-8 h-8 fill-white" />}
+                         <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-black shadow-2xl shadow-white/5 mb-6">
+                            {isForgotPassword ? <KeyRound className="w-8 h-8 text-black" /> : <Zap className="w-8 h-8 fill-black text-black" />}
                          </div>
                          <h1 className='text-3xl font-black text-white tracking-tight'>
                             {isForgotPassword 
@@ -146,7 +146,7 @@ const LoginPage = () => {
                                 : isVerifying ? "Verify Email" : isRegister ? "Create Account" : "Welcome Back"
                             }
                          </h1>
-                         <p className='text-purple-400 font-bold uppercase text-[10px] tracking-[0.2em] mt-3'>
+                         <p className='text-neutral-400 font-bold uppercase text-[10px] tracking-[0.2em] mt-3'>
                             {isForgotPassword 
                                 ? (isResetting ? "Set a new login credential" : "Enter your email to receive a code")
                                 : isVerifying ? "Enter the 6-digit code sent to your mail" : "Identify to access the Hub"
@@ -159,13 +159,13 @@ const LoginPage = () => {
                         !isResetting ? (
                             <form onSubmit={handleForgotPasswordRequest} className='space-y-4'>
                                 <div className='relative'>
-                                    <Mail className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-purple-400' />
+                                    <Mail className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400' />
                                     <input 
                                         type="email" 
                                         placeholder="Email Address" 
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className='w-full h-14 pl-12 pr-4 rounded-2xl bg-[#130d2a]/60 border border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all font-medium text-white placeholder-purple-400/35'
+                                        className='w-full h-14 pl-12 pr-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-4 focus:ring-white/5 outline-none transition-all font-medium text-white placeholder-neutral-600'
                                         required
                                     />
                                 </div>
@@ -173,7 +173,7 @@ const LoginPage = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className='w-full h-14 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:from-purple-500 hover:to-indigo-500 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-purple-500/20'
+                                    className='w-full h-14 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-neutral-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-white/5 border border-white'
                                 >
                                     {loading && <Loader2 className='w-4 h-4 animate-spin' />}
                                     Send Reset Code
@@ -183,7 +183,7 @@ const LoginPage = () => {
                                     <button 
                                         type="button"
                                         onClick={() => setIsForgotPassword(false)}
-                                        className='text-[11px] font-bold text-purple-400/80 uppercase tracking-widest hover:text-purple-300 transition-colors'
+                                        className='text-[11px] font-bold text-neutral-400/80 uppercase tracking-widest hover:text-white transition-colors'
                                     >
                                         Back to Login
                                     </button>
@@ -199,20 +199,20 @@ const LoginPage = () => {
                                             placeholder="000000" 
                                             value={resetCode}
                                             onChange={(e) => setResetCode(e.target.value.replace(/\D/g, ''))}
-                                            className='w-full h-20 text-center text-4xl font-black tracking-[0.5em] rounded-3xl bg-[#130d2a]/60 border-2 border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-8 focus:ring-purple-500/10 outline-none transition-all text-white placeholder-purple-400/10'
+                                            className='w-full h-20 text-center text-4xl font-black tracking-[0.5em] rounded-3xl bg-neutral-900/60 border-2 border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-8 focus:ring-white/5 outline-none transition-all text-white placeholder-neutral-800'
                                             required
                                         />
                                     </div>
                                 </div>
 
                                 <div className='relative'>
-                                    <Lock className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-purple-400' />
+                                    <Lock className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400' />
                                     <input 
                                         type="password" 
                                         placeholder="New Password" 
                                         value={newPassword}
                                         onChange={(e) => setNewPassword(e.target.value)}
-                                        className='w-full h-14 pl-12 pr-4 rounded-2xl bg-[#130d2a]/60 border border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all font-medium text-white placeholder-purple-400/35'
+                                        className='w-full h-14 pl-12 pr-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-4 focus:ring-white/5 outline-none transition-all font-medium text-white placeholder-neutral-600'
                                         required
                                     />
                                 </div>
@@ -220,7 +220,7 @@ const LoginPage = () => {
                                 <button
                                     type="submit"
                                     disabled={loading || resetCode.length !== 6 || !newPassword}
-                                    className='w-full h-14 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:from-purple-500 hover:to-indigo-500 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-purple-500/20'
+                                    className='w-full h-14 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-neutral-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-white/5 border border-white'
                                 >
                                     {loading ? <Loader2 className='w-4 h-4 animate-spin' /> : <CheckCircle2 className='w-4 h-4' />}
                                     Reset Password
@@ -229,7 +229,7 @@ const LoginPage = () => {
                                 <button 
                                     type="button"
                                     onClick={() => setIsResetting(false)}
-                                    className='w-full text-[11px] font-bold text-purple-400/60 uppercase tracking-widest hover:text-purple-300 transition-colors'
+                                    className='w-full text-[11px] font-bold text-neutral-400/60 uppercase tracking-widest hover:text-white transition-colors'
                                 >
                                     Re-enter email
                                 </button>
@@ -242,13 +242,13 @@ const LoginPage = () => {
                                 {isRegister && (
                                     <div className='space-y-2'>
                                         <div className='relative'>
-                                            <User className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-purple-400' />
+                                            <User className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400' />
                                             <input 
                                                 type="text" 
                                                 placeholder="Full Name" 
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
-                                                className='w-full h-14 pl-12 pr-4 rounded-2xl bg-[#130d2a]/60 border border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all font-medium text-white placeholder-purple-400/35'
+                                                className='w-full h-14 pl-12 pr-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-4 focus:ring-white/5 outline-none transition-all font-medium text-white placeholder-neutral-600'
                                                 required={isRegister}
                                             />
                                         </div>
@@ -257,24 +257,24 @@ const LoginPage = () => {
 
                                 <div className='space-y-4'>
                                     <div className='relative'>
-                                        <Mail className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-purple-400' />
+                                        <Mail className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400' />
                                         <input 
                                             type="email" 
                                             placeholder="Email Address" 
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className='w-full h-14 pl-12 pr-4 rounded-2xl bg-[#130d2a]/60 border border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all font-medium text-white placeholder-purple-400/35'
+                                            className='w-full h-14 pl-12 pr-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-4 focus:ring-white/5 outline-none transition-all font-medium text-white placeholder-neutral-600'
                                             required
                                         />
                                     </div>
                                     <div className='relative'>
-                                        <Lock className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-purple-400' />
+                                        <Lock className='absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400' />
                                         <input 
                                             type="password" 
                                             placeholder="Password" 
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
-                                            className='w-full h-14 pl-12 pr-4 rounded-2xl bg-[#130d2a]/60 border border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none transition-all font-medium text-white placeholder-purple-400/35'
+                                            className='w-full h-14 pl-12 pr-4 rounded-2xl bg-neutral-900/60 border border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-4 focus:ring-white/5 outline-none transition-all font-medium text-white placeholder-neutral-600'
                                             required
                                         />
                                     </div>
@@ -285,7 +285,7 @@ const LoginPage = () => {
                                         <button 
                                             type="button" 
                                             onClick={() => setIsForgotPassword(true)}
-                                            className='text-[10px] font-bold text-purple-400 hover:text-purple-300 transition-colors uppercase tracking-wider'
+                                            className='text-[10px] font-bold text-neutral-400 hover:text-white transition-colors uppercase tracking-wider'
                                         >
                                             Forgot Password?
                                         </button>
@@ -295,7 +295,7 @@ const LoginPage = () => {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className='w-full h-14 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:from-purple-500 hover:to-indigo-500 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-purple-500/20'
+                                    className='w-full h-14 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-neutral-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-white/5 border border-white'
                                 >
                                     {loading && <Loader2 className='w-4 h-4 animate-spin' />}
                                     {isRegister ? "Start Activation" : "Authorize Access"}
@@ -308,7 +308,7 @@ const LoginPage = () => {
                                             setIsRegister(!isRegister);
                                             setIsVerifying(false);
                                         }}
-                                        className='text-[11px] font-bold text-purple-400/80 uppercase tracking-widest hover:text-purple-300 transition-colors'
+                                        className='text-[11px] font-bold text-neutral-400/80 uppercase tracking-widest hover:text-white transition-colors'
                                     >
                                         {isRegister ? "Already have access? Authorize" : "New Operator? Create Account"}
                                     </button>
@@ -324,7 +324,7 @@ const LoginPage = () => {
                                             placeholder="000000" 
                                             value={code}
                                             onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
-                                            className='w-full h-20 text-center text-4xl font-black tracking-[0.5em] rounded-3xl bg-[#130d2a]/60 border-2 border-purple-950/50 focus:bg-[#130d2a] focus:border-purple-500 focus:ring-8 focus:ring-purple-500/10 outline-none transition-all text-white placeholder-purple-400/10'
+                                            className='w-full h-20 text-center text-4xl font-black tracking-[0.5em] rounded-3xl bg-neutral-900/60 border-2 border-neutral-800 focus:bg-neutral-900 focus:border-white focus:ring-8 focus:ring-white/5 outline-none transition-all text-white placeholder-neutral-800'
                                             required
                                         />
                                     </div>
@@ -333,7 +333,7 @@ const LoginPage = () => {
                                 <button
                                     type="submit"
                                     disabled={loading || code.length !== 6}
-                                    className='w-full h-14 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:from-purple-500 hover:to-indigo-500 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-purple-500/20'
+                                    className='w-full h-14 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-neutral-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none shadow-lg shadow-white/5 border border-white'
                                 >
                                     {loading ? <Loader2 className='w-4 h-4 animate-spin' /> : <CheckCircle2 className='w-4 h-4' />}
                                     Verify Terminal Code
@@ -342,7 +342,7 @@ const LoginPage = () => {
                                 <button 
                                     type="button"
                                     onClick={() => setIsVerifying(false)}
-                                    className='w-full text-[11px] font-bold text-purple-400/60 uppercase tracking-widest hover:text-purple-300 transition-colors'
+                                    className='text-[11px] font-bold text-neutral-400/60 uppercase tracking-widest hover:text-white transition-colors'
                                 >
                                     Re-enter email or password
                                 </button>
@@ -350,8 +350,8 @@ const LoginPage = () => {
                         )
                     )}
 
-                    <div className='pt-8 mt-8 border-t border-purple-950/50 flex flex-col items-center gap-4'>
-                        <div className='flex items-center gap-2 px-3 py-1 bg-purple-950/40 text-purple-400 rounded-full border border-purple-900/30'>
+                    <div className='pt-8 mt-8 border-t border-neutral-900 flex flex-col items-center gap-4'>
+                        <div className='flex items-center gap-2 px-3 py-1 bg-neutral-900 text-neutral-400 rounded-full border border-neutral-800'>
                             <ShieldCheck className='w-3.5 h-3.5' />
                             <span className='text-[9px] font-black uppercase tracking-wider'>Quantum Cryptography Secured</span>
                         </div>
@@ -359,7 +359,7 @@ const LoginPage = () => {
                 </div>
 
                 <div className='mt-10 text-center opacity-40 hover:opacity-100 transition-opacity duration-500'>
-                    <p className='text-[10px] font-black text-purple-500 uppercase tracking-widest leading-loose'>
+                    <p className='text-[10px] font-black text-neutral-500 uppercase tracking-widest leading-loose'>
                         FlowX Intelligence Systems <br />
                         Global Authorization Terminal v1.0.42
                     </p>
