@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8000",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8000",
-    "lint": "eslint",
-    "tunnel": "lt --port 8000 --subdomain n8n-next-app",
-    "dev:tunnel": "concurrently -k -n next,tunnel -c cyan,magenta \"cross-env NEXT_PUBLIC_APP_URL=http://localhost:8000 next dev -p 8000\" \"lt --port 8000 --subdomain n8n-next-app\""
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
