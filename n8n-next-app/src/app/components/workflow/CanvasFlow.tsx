@@ -506,8 +506,8 @@ const CanvasFlowContent = () => {
           variant={BackgroundVariant.Dots}
           gap={30}
           size={2}
-          color="#94a3b8"
-          className="opacity-70"
+          color="#000000"
+          className="opacity-5"
         />
         <Controls position="bottom-left" />
         <MiniMap pannable zoomable />
@@ -516,9 +516,9 @@ const CanvasFlowContent = () => {
             <button
                 onClick={() => dispatch(setShowToolsPanel(!showToolsPanel))}
                 className={`
-                    w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500
-                    ${showToolsPanel ? 'bg-slate-800 rotate-45 scale-90' : 'bg-blue-600 hover:scale-110 active:scale-95'}
-                    text-white group pointer-events-auto
+                    w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 cursor-pointer
+                    ${showToolsPanel ? 'bg-neutral-100 border border-neutral-200 rotate-45 scale-90 text-neutral-800' : 'bg-black hover:scale-110 active:scale-95 text-white'}
+                    group pointer-events-auto
                 `}
                 title="Assemble System Component"
             >
@@ -530,38 +530,38 @@ const CanvasFlowContent = () => {
         </Panel>
         
         <Panel position="top-left" className="flex flex-col gap-3 pointer-events-auto m-6">
-          <div className="px-5 py-2.5 rounded-2xl border border-[var(--border)] bg-white/80 backdrop-blur-md shadow-xl">
-              <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-1">Project Active</div>
-              <div className="text-sm font-black text-[var(--foreground)] tracking-tight">
+          <div className="px-5 py-2.5 rounded-2xl border border-neutral-200 bg-white/70 backdrop-blur-md shadow-xl text-neutral-900">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-1">Project Active</div>
+              <div className="text-sm font-black text-neutral-900 tracking-tight">
                   {workflowName}
               </div>
           </div>
-          <div className="px-4 py-2 rounded-xl border border-[var(--border)] bg-[var(--accent)]/50 backdrop-blur-sm flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-              <span className="text-[10px] font-bold text-[var(--accent-foreground)] uppercase">
+          <div className="px-4 py-2 rounded-xl border border-neutral-200 bg-neutral-100/40 backdrop-blur-sm flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-neutral-600 animate-pulse" />
+              <span className="text-[10px] font-bold text-neutral-600 uppercase">
                   {nodes.length} Nodes · {edges.length} Links
               </span>
           </div>
         </Panel>
 
           <Panel position="top-right" className="m-6">
-             <div className={`backdrop-blur-md px-5 py-3 rounded-2xl border transition-all duration-500 shadow-2xl flex items-center gap-4 ${isSchedulerActive ? 'bg-white/80 border-blue-200' : 'bg-slate-50/50 border-slate-200 opacity-60'}`}>
+             <div className={`backdrop-blur-md px-5 py-3 rounded-2xl border transition-all duration-500 shadow-2xl flex items-center gap-4 ${isSchedulerActive ? 'bg-neutral-50/85 border-neutral-200 shadow-[0_0_15px_rgba(0,0,0,0.05)] text-neutral-800' : 'bg-white/80 border-neutral-200 opacity-70 text-neutral-500'}`}>
                 <div className="relative flex h-3 w-3">
                   {isSchedulerActive && <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />}
-                  <div className={`relative inline-flex rounded-full h-3 w-3 ${isSchedulerActive ? 'bg-red-500' : 'bg-slate-300'}`}  />
+                  <div className={`relative inline-flex rounded-full h-3 w-3 ${isSchedulerActive ? 'bg-red-500' : 'bg-neutral-300'}`}  />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-800 leading-none">
+                  <span className={`text-[10px] font-bold uppercase tracking-widest leading-none ${isSchedulerActive ? 'text-neutral-900' : 'text-neutral-650'}`}>
                       {isSchedulerActive ? 'AI Scheduler Active' : 'Scheduler Standby'}
                   </span>
-                  <span className="text-[9px] font-medium text-slate-500 mt-1">
+                  <span className="text-[9px] font-medium text-neutral-400 mt-1">
                       {isSchedulerActive ? 'Real-time automation monitoring' : 'Ready for execution sequence'}
                   </span>
                 </div>
                 {isSchedulerActive && (
                   <button 
                     onClick={handleStop}
-                    className="ml-2 p-1.5 rounded-lg bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-colors border border-red-100"
+                    className="ml-2 p-1.5 rounded-lg bg-red-950/45 text-red-400 hover:bg-red-900 hover:text-white transition-colors border border-red-900/35 cursor-pointer"
                     title="Stop Scheduler"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect></svg>

@@ -47,7 +47,9 @@ import {
   codeNodeConfig,
   loopNodeConfig,
   errorHandlerNodeConfig,
-  whatsAppNodeConfig
+  whatsAppNodeConfig,
+  csvLoaderNodeConfig,
+  pdfConverterNodeConfig
 } from "./workflow/node-config";
 
 
@@ -238,6 +240,10 @@ const flowSlice = createSlice({
         newNode = errorHandlerNodeConfig({ id, label, icon, position });
       } else if (action.payload.node === "whatsAppNode") {
         newNode = whatsAppNodeConfig({ id, label, icon, position });
+      } else if (action.payload.node === "csvLoaderNode") {
+        newNode = csvLoaderNodeConfig({ id, label, icon, position });
+      } else if (action.payload.node === "pdfConverterNode") {
+        newNode = pdfConverterNodeConfig({ id, label, icon, position });
       } else {
 
         return;

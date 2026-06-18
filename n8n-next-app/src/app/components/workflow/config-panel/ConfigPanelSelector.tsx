@@ -33,6 +33,8 @@ import { CodeConfig } from './CodeConfig'
 import { LoopConfig } from './LoopConfig'
 import { ErrorHandlerConfig } from './ErrorHandlerConfig'
 import { WhatsAppConfig } from './WhatsAppConfig'
+import { CSVLoaderConfig } from './CSVLoaderConfig'
+import { PDFConverterConfig } from './PDFConverterConfig'
 
 
 type ConfigPanelSelectorProps = {
@@ -118,6 +120,10 @@ export function ConfigPanelSelector({ nodeId, nodeType, nodeData, onChange, node
       return <ErrorHandlerConfig key={nodeId} nodeId={nodeId} nodeData={nodeData} onChange={onChange} />
     case 'whatsAppNode':
       return <WhatsAppConfig key={nodeId} nodeId={nodeId} nodeData={nodeData} onChange={onChange} />
+    case 'csvLoaderNode':
+      return <CSVLoaderConfig key={nodeId} nodeId={nodeId} nodeData={nodeData} onChange={onChange} />
+    case 'pdfConverterNode':
+      return <PDFConverterConfig key={nodeId} nodeId={nodeId} nodeData={nodeData} onChange={onChange} />
 
     default:
       return (

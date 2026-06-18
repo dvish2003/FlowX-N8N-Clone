@@ -1,39 +1,11 @@
 import { withErrorHandler } from "@/lib/mongodb/withErrorHandler";
 import { UserService } from "@/services/user/UserService";
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
 export const authOptions = {
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-       authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-          scope:[
-            "openid",
-            "email",
-            "profile",
-            "https://www.googleapis.com/auth/drive",
-            "https://www.googleapis.com/auth/drive.metadata.readonly",
-            "https://www.googleapis.com/auth/calendar",
-            "https://www.googleapis.com/auth/calendar.events",
-            "https://www.googleapis.com/auth/gmail.readonly",
-            "https://www.googleapis.com/auth/gmail.send",
-            "https://www.googleapis.com/auth/gmail.modify",
-            "https://www.googleapis.com/auth/spreadsheets",
-            
-          ].join(" "),
-        },
-      },
-      httpOptions: { timeout: 10000 },
-    
-    }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -57,7 +29,7 @@ export const authOptions = {
         }
 
         if (!user.password) {
-          throw new Error("This account uses Google login. Please sign in with Google.");
+          throw new Error("No password set for this account. Please use forgot password to set one.");
         }
 
         const isValid = await bcrypt.compare(credentials.password, user.password);

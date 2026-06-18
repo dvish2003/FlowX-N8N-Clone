@@ -26,40 +26,40 @@
 }
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --primary: #2563eb;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --primary: #000000;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #475569;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #eff6ff;
-  --accent-foreground: #1e40af;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #0f172a;
+  --muted: #fafafa;
+  --muted-foreground: #71717a;
+  --accent: #e4e4e7;
+  --accent-foreground: #000000;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
+  --border: #e5e5e5;
   --input: #ffffff;
-  --ring: #3b82f6;
+  --ring: #000000;
   --radius: 0.75rem;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-  --primary: #3b82f6;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --primary: #000000;
   --primary-foreground: #ffffff;
-  --secondary: #1e293b;
-  --secondary-foreground: #94a3b8;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
-  --destructive: #7f1d1d;
-  --destructive-foreground: #f8fafc;
-  --border: #1e293b;
-  --input: #0f172a;
-  --ring: #3b82f6;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #0f172a;
+  --muted: #fafafa;
+  --muted-foreground: #71717a;
+  --accent: #e4e4e7;
+  --accent-foreground: #000000;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e5e5e5;
+  --input: #ffffff;
+  --ring: #000000;
 }
 
 @layer base {
@@ -69,23 +69,35 @@
   body {
     @apply bg-background text-foreground antialiased;
     background-image: 
-      radial-gradient(at 0% 0%, hsla(215, 100%, 97%, 1) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(225, 100%, 98%, 1) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(235, 100%, 97%, 1) 0, transparent 50%);
+      radial-gradient(at 50% 0%, rgba(0, 0, 0, 0.03) 0, transparent 70%);
     background-attachment: fixed;
   }
 }
 
 .dark body {
   background-image: 
-    radial-gradient(at 0% 0%, hsla(222, 47%, 11%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(222, 47%, 9%, 1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(222, 47%, 11%, 1) 0, transparent 50%);
+    radial-gradient(at 50% 0%, rgba(0, 0, 0, 0.03) 0, transparent 70%);
 }
 
+/* Grid & Cell animations */
+@keyframes gridGlow {
+  0%, 100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.2;
+    filter: drop-shadow(0 0 6px var(--primary));
+  }
+}
+
+.animate-grid-glow {
+  animation: gridGlow 4s infinite ease-in-out;
+}
+
+/* Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -93,39 +105,178 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-200 rounded-full border-2 border-transparent bg-clip-padding;
+  background-color: #e5e5e5;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-slate-300;
+  background-color: #d4d4d4;
 }
 
+/* React Flow Theming */
 .react-flow__handle {
   width: 10px !important;
   height: 10px !important;
-  background: white !important;
-  border: 2px solid var(--primary) !important;
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
   transition: all 0.2s ease;
 }
 
 .react-flow__handle:hover {
   transform: scale(1.2);
-  background: var(--primary) !important;
+  background: #000000 !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .react-flow__node {
-  border-radius: 16px !important;
   border: none !important;
+  background: transparent !important;
+  color: #0a0a0a !important;
+}
+
+/* Glassmorphic Nodes override */
+.react-flow__node > div {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15) !important;
+  color: #0a0a0a !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Sleek monochrome breathing pulse when selected */
+@keyframes siriGlowAnimation {
+  0%, 100% {
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.15), 0 0 35px 2px rgba(0, 0, 0, 0.05), inset 0 0 8px rgba(0, 0, 0, 0.02);
+    border-color: #000000 !important;
+  }
+  50% {
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.25), 0 0 45px 4px rgba(0, 0, 0, 0.1), inset 0 0 12px rgba(0, 0, 0, 0.05);
+    border-color: #525252 !important;
+  }
+}
+
+/* Custom shadow animation on hover */
+@keyframes hoverGlowAnimation {
+  0%, 100% {
+    box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.08), 0 0 24px 2px rgba(0, 0, 0, 0.04);
+    border-color: #737373 !important;
+  }
+  50% {
+    box-shadow: 0 0 18px 2px rgba(0, 0, 0, 0.15), 0 0 30px 3px rgba(0, 0, 0, 0.08);
+    border-color: #000000 !important;
+  }
+}
+
+.react-flow__node.selected > div {
+  animation: siriGlowAnimation 4s infinite ease-in-out !important;
+  border-width: 1.5px !important;
+  scale: 1.02;
+}
+
+.react-flow__node:hover > div {
+  animation: hoverGlowAnimation 3s infinite ease-in-out !important;
+  border-width: 1.5px !important;
+  scale: 1.03;
+}
+
+/* Right Panel form styling overrides */
+aside label,
+aside .text-slate-700,
+aside .text-slate-800,
+aside .text-slate-900,
+aside span.text-slate-800,
+aside p.text-slate-500 {
+  color: rgba(10, 10, 10, 0.85) !important;
+  font-weight: 600 !important;
+}
+
+aside input,
+aside select,
+aside textarea,
+aside .bg-white input,
+aside .bg-white select,
+aside .bg-white textarea {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #0a0a0a !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+aside input::placeholder,
+aside textarea::placeholder {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+aside input:focus,
+aside select:focus,
+aside textarea:focus {
+  border-color: rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+aside .bg-white,
+aside .bg-slate-50 {
+  background-color: transparent !important;
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+aside .border-slate-100,
+aside .border-slate-200 {
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Sub-elements internal color fixes */
+.react-flow__node h3,
+.react-flow__node h1,
+.react-flow__node .text-slate-800,
+.react-flow__node .text-slate-700 {
+  color: #0a0a0a !important;
+}
+
+.react-flow__node span,
+.react-flow__node p,
+.react-flow__node .text-slate-400,
+.react-flow__node .text-slate-500 {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.react-flow__node .bg-slate-50,
+.react-flow__node .bg-slate-100,
+.react-flow__node .bg-blue-50,
+.react-flow__node .bg-purple-50,
+.react-flow__node .bg-orange-50 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #0a0a0a !important;
+}
+
+.react-flow__node img {
+  filter: brightness(0.9) contrast(1.1) !important;
+}
+
+.react-flow__node .rounded-full.bg-white,
+.react-flow__node .bg-white {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #0a0a0a !important;
+}
+
+.react-flow__node .border-slate-100,
+.react-flow__node .border-slate-200 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 .react-flow__controls {
-  @apply !bg-white/80 !backdrop-blur-md !border !border-slate-200 !shadow-2xl !rounded-2xl !overflow-hidden !m-6;
+  @apply !bg-white/80 !backdrop-blur-md !border !border-neutral-200 !shadow-2xl !rounded-2xl !overflow-hidden !m-6;
 }
 
 .react-flow__controls-button {
-  @apply !border-b !border-slate-100 !fill-slate-600 hover:!bg-slate-50 !transition-colors;
+  @apply !border-b !border-neutral-200 !fill-neutral-800 hover:!bg-neutral-100 !transition-colors !text-neutral-800;
 }
 
 .react-flow__attribution {
-  @apply !bg-transparent !text-slate-400 !text-[8px] !font-medium;
+  @apply !bg-transparent !text-neutral-400 !text-[8px] !font-medium;
 }

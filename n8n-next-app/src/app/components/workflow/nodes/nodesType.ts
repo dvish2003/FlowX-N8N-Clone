@@ -28,7 +28,9 @@ import {
   dataFormatterNode,
   codeNode,
   errorHandlerNode,
-  whatsAppNode
+  whatsAppNode,
+  csvLoaderNode,
+  pdfConverterNode
 } from './standard-nodes'
 
 import modelNode from './modelNode'
@@ -67,4 +69,6 @@ export const nodeTypes = {
   codeNode: codeNode,
   errorHandlerNode: errorHandlerNode,
   whatsAppNode: whatsAppNode,
+  csvLoaderNode: csvLoaderNode,
+  pdfConverterNode: pdfConverterNode,
 }

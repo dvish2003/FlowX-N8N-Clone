@@ -198,6 +198,8 @@ export const emailNode = (props: NodeProps) => <StandardNode {...props} />
 export const telegramNode = (props: NodeProps) => <StandardNode {...props} />
 export const webhookNode = (props: NodeProps) => <StandardNode {...props} />
 export const dataFormatterNode = (props: NodeProps) => <StandardNode {...props} />
+export const csvLoaderNode = (props: NodeProps) => <StandardNode {...props} />
+export const pdfConverterNode = (props: NodeProps) => <StandardNode {...props} />
 export const codeNode = (props: NodeProps) => <StandardNode {...props} />
 export const errorHandlerNode = (props: NodeProps) => <StandardNode {...props} />
 export const whatsAppNode = (props: NodeProps) => <StandardNode {...props} />

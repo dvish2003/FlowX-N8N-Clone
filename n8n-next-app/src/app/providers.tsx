@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function Providers({ children, session }: { children: ReactNode; session?: Session }) {
   return (
     <SessionProvider session={session}>
-      <ThemeProvider attribute="class" forcedTheme="light" defaultTheme="light" enableSystem={false}>
+      <ThemeProvider attribute="class" forcedTheme="dark" defaultTheme="dark" enableSystem={false}>
         <TooltipProvider delayDuration={0}>
           <Provider store={store}>
             {children}

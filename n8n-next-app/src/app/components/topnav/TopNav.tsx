@@ -27,30 +27,30 @@ const TopNav = () => {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/70 backdrop-blur-2xl transition-all duration-300">
+    <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/75 backdrop-blur-2xl transition-all duration-300">
       <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-6 md:px-8">
         <div className="flex items-center gap-10">
            <Link href="/" className="flex items-center gap-3 font-black group">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-[0.9rem] bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/20 group-hover:rotate-6 transition-all duration-500">
-              <Zap className="h-5 w-5 fill-white" />
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-[0.9rem] bg-gradient-to-tr from-neutral-200 to-neutral-100 text-neutral-800 border border-neutral-300 shadow-sm group-hover:rotate-6 transition-all duration-500">
+              <Zap className="h-5 w-5 fill-neutral-800 text-neutral-800" />
             </div>
-            <span className="hidden sm:inline text-xl font-black tracking-tight text-slate-900">
-              Flow<span className="text-blue-600">X</span>
+            <span className="hidden sm:inline text-xl font-black tracking-tight text-neutral-900">
+              Flow<span className="text-neutral-500">X</span>
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-2 bg-slate-100/50 p-1.5 rounded-2xl border border-slate-200/30">
+          <nav className="hidden md:flex items-center gap-2 bg-neutral-100 p-1.5 rounded-2xl border border-neutral-200">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`px-5 py-2 text-xs font-bold rounded-xl transition-all flex items-center gap-2.5 ${
                   isActive(item.href)
-                    ? 'bg-white text-blue-600 shadow-sm border border-slate-200/50 scale-[1.02]'
-                    : 'text-slate-500 hover:text-slate-900 hover:bg-white/50'
+                    ? 'bg-white text-neutral-900 shadow-sm border border-neutral-300 scale-[1.02]'
+                    : 'text-neutral-500 hover:text-neutral-900 hover:bg-white/50'
                 }`}
               >
-                {item.icon && <item.icon className={`w-4 h-4 ${isActive(item.href) ? 'text-blue-600' : 'text-slate-400'}`}/>}
+                {item.icon && <item.icon className={`w-4 h-4 ${isActive(item.href) ? 'text-neutral-900' : 'text-neutral-400'}`}/>}
                 {item.label}
               </Link>
             ))}
@@ -59,27 +59,27 @@ const TopNav = () => {
 
         <div className="flex items-center gap-6">
           <div className="hidden md:flex items-center gap-1">
-             <div className="px-3 py-1 rounded-full bg-blue-50 text-[10px] font-bold text-blue-600 tracking-widest uppercase border border-blue-100">AI Enabled</div>
+             <div className="px-3 py-1 rounded-full bg-neutral-100 text-[10px] font-bold text-neutral-600 tracking-widest uppercase border border-neutral-200">AI Enabled</div>
           </div>
-          <div className="h-6 w-px bg-slate-200 mx-1" />
+          <div className="h-6 w-px bg-neutral-200 mx-1" />
           <AuthButton />
 
           <DropdownMenu open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <DropdownMenuTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="hover:bg-slate-100 rounded-xl">
+              <Button variant="ghost" size="icon" className="hover:bg-neutral-100 rounded-xl text-neutral-800">
                 {mobileMenuOpen ? (
-                  <X className="h-5 w-5 text-slate-900" />
+                  <X className="h-5 w-5 text-neutral-800" />
                 ) : (
-                  <Menu className="h-5 w-5 text-slate-900" />
+                  <Menu className="h-5 w-5 text-neutral-800" />
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64 border border-slate-200 p-2 shadow-2xl rounded-[2rem]">
+            <DropdownMenuContent align="end" className="w-64 border border-neutral-200 p-2 shadow-2xl rounded-[2rem] bg-white text-neutral-900">
               {navItems.map((item) => (
-                <DropdownMenuItem key={item.href} asChild className="rounded-xl mb-1">
+                <DropdownMenuItem key={item.href} asChild className="rounded-xl mb-1 hover:bg-neutral-100">
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-3 cursor-pointer font-bold uppercase text-[10px] tracking-widest p-3 ${isActive(item.href) ? 'bg-blue-50 text-blue-600' : 'text-slate-600'}`}
+                    className={`flex items-center gap-3 cursor-pointer font-bold uppercase text-[10px] tracking-widest p-3 ${isActive(item.href) ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-500'}`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.icon && <item.icon className="w-4 h-4" />}
@@ -87,8 +87,8 @@ const TopNav = () => {
                   </Link>
                 </DropdownMenuItem>
               ))}
-              <DropdownMenuSeparator className="my-2 bg-slate-100" />
-              <DropdownMenuItem className="cursor-pointer font-bold uppercase text-[10px] tracking-widest text-red-500 p-3 rounded-xl hover:bg-red-50 hover:text-red-600">
+              <DropdownMenuSeparator className="my-2 bg-neutral-100" />
+              <DropdownMenuItem className="cursor-pointer font-bold uppercase text-[10px] tracking-widest text-red-650 p-3 rounded-xl hover:bg-red-50 hover:text-red-600">
                 Terminate Session
               </DropdownMenuItem>
             </DropdownMenuContent>

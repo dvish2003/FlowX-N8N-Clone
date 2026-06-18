@@ -11,18 +11,18 @@ export default function Page() {
 
 
   return (
-    <div className='h-screen flex flex-col bg-white'>
+    <div className='h-screen flex flex-col bg-white text-neutral-900'>
       <TopNav />
 
       <div className='flex flex-1 overflow-hidden'>
         <LeftPanel />
 
-        <div className="flex-1 relative">
+        <div className="flex-1 relative bg-white">
           <CanvasFlow />
         </div>
          
         <aside 
-          className='bg-white border-l border-white overflow-hidden'
+          className='bg-neutral-50 border-l border-neutral-200 overflow-hidden'
           style={{
             width: rightWidth
           }}

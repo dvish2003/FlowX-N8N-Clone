@@ -35,6 +35,8 @@ import { loopNodeConfig } from "./nodes/loopNodeConfig"
 import { errorHandlerNodeConfig } from "./nodes/errorHandlerNodeConfig"
 
 import { whatsAppNodeConfig } from "./nodes/whatsAppNodeConfig"
+import { csvLoaderNodeConfig } from "./nodes/csvLoaderNodeConfig"
+import { pdfConverterNodeConfig } from "./nodes/pdfConverterNodeConfig"
 
 export {
 
@@ -70,6 +72,8 @@ export {
     codeNodeConfig,
     loopNodeConfig,
     errorHandlerNodeConfig,
-    whatsAppNodeConfig
+    whatsAppNodeConfig,
+    csvLoaderNodeConfig,
+    pdfConverterNodeConfig
 }
 
