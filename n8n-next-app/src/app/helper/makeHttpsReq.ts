@@ -3,14 +3,16 @@ type HttpVerb = "GET" | "POST" | "PUT" | "DELETE";
 export function makeHttpsReq<T>(verb:HttpVerb,endPoint: string, input?: T) {
   return new Promise(async (resolve, reject) => {
     try {
-      const res = fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/${endPoint}`,
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "";
+      const res = fetch(`${baseUrl}/api/${endPoint}`,
         {
             headers: {
                 accept: 'application/json',
                 'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
             },
             method: verb,
-            body: JSON.stringify(input)
+            body: input ? JSON.stringify(input) : undefined
         }
       );
       if(!(await res).ok) throw new Error('Request failed');
